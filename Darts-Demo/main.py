@@ -85,6 +85,7 @@ while jatka:
     lista_kierroksen_tulos.append(kierros_count(lista_per_kierros))
     print('Vuoro heitetty!!!')
     lista_per_kierros.clear()
+    print(f'Olet heittänyt {kierroksia} vuoroa')
     kierroksia += 1
     uusi_sessio['kierros'] = uusi_sessio['kierros'] + [int(heitto1)]
 
