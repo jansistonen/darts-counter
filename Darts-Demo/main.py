@@ -46,6 +46,7 @@ kierroksia = 0
 lista_per_kierros = []
 lista_kierroksen_tulos = []
 jatka = True
+pisteet = 501
 
 def kierros_count(para1):
     summa = 0
@@ -63,10 +64,12 @@ def kierros_lista_läpikäynti(para2):
         return None
     return sum / len(lista_kierroksen_tulos)
 
-while jatka:
+pelimuoto = int(input('Valitse pelimuoto: \n Harjoittelu -- 1 \n 501 -- 2'))
+
+while pelimuoto == 1:
     #syötä täällä heittosi
     print('Q lopettaa kieroksen')
-    heitto1 = input('Kierros: ')
+    heitto1 = int(input('Kierros: '))
     if heitto1 == '':
         heitto1 = 0
     '''heitto2 = input('Tikka 2: ')
@@ -85,9 +88,23 @@ while jatka:
     lista_kierroksen_tulos.append(kierros_count(lista_per_kierros))
     print('Vuoro heitetty!!!')
     lista_per_kierros.clear()
-    print(f'Olet heittänyt {kierroksia} vuoroa')
     kierroksia += 1
+    print(f'Olet heittänyt {kierroksia} vuoroa')
     uusi_sessio['kierros'] = uusi_sessio['kierros'] + [int(heitto1)]
+
+while pelimuoto == 2:
+    print(f'Pisteitä jäljellä: {pisteet}')
+    vuoro = int(input('Vuoron tulos: '))
+    temp = pisteet - vuoro
+    if temp < 0:
+        continue
+    elif temp == 0:
+        print('Voitto!')
+        break
+    else:
+        pisteet = temp
+
+
 
 print(f'Lopetit heittovuoron. Heitit yhteensä {kierroksia} kierrosta!')
 print(lista_kierroksen_tulos)
